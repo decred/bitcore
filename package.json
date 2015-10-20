@@ -83,7 +83,7 @@
     "bn.js": "=2.0.4",
     "bs58": "=2.0.0",
     "buffer-compare": "=1.0.0",
-    "crypto-browserify": "file:../crypto-browserify";
+    "crypto-browserify": "file:../crypto-browserify",
     "elliptic": "=3.0.3",
     "hash.js": "=1.0.2",
     "inherits": "=2.0.1",
@@ -94,6 +94,7 @@
     "bitcore-build": "bitpay/bitcore-build",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
+    "crypto-browserify": "file:../crypto-browserify",
     "gulp": "^3.8.10",
     "sinon": "^1.13.0"
   },
