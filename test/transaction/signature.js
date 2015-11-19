@@ -22,7 +22,7 @@ describe('TransactionSignature', function() {
     txId: 'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458',
     outputIndex: 0,
     script: Script.buildPublicKeyHashOut(fromAddress).toString(),
-    satoshis: 100000
+    atoms: 100000
   };
 
   var getSignatureFromTransaction = function() {
@@ -68,7 +68,7 @@ describe('TransactionSignature', function() {
       txId: '0000000000000000000000000000000000000000000000000000000000000000', // Not relevant
       outputIndex: 0,
       script: Script.buildMultisigOut([public1, public2], 2).toScriptHashOut(),
-      satoshis: 100000
+      atoms: 100000
     };
     var transaction = new Transaction().from(utxo, [public1, public2], 2);
     var signatures = transaction.getSignatures(private1);

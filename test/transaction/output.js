@@ -18,7 +18,7 @@ var errors = bitcore.errors;
 describe('Output', function() {
 
   var output = new Output({
-    satoshis: 0,
+    atoms: 0,
     script: Script.empty()
   });
 
@@ -30,60 +30,60 @@ describe('Output', function() {
 
   it('can be assigned a satoshi amount in big number', function() {
     var newOutput = new Output({
-      satoshis: new BN(100),
+      atoms: new BN(100),
       script: Script.empty()
     });
-    newOutput.satoshis.should.equal(100);
+    newOutput.atoms.should.equal(100);
   });
 
   it('can be assigned a satoshi amount with a string', function() {
     var newOutput = new Output({
-      satoshis: '100',
+      atoms: '100',
       script: Script.empty()
     });
-    newOutput.satoshis.should.equal(100);
+    newOutput.atoms.should.equal(100);
   });
 
   describe('will error if output is not a positive integer', function() {
     it('-100', function() {
       (function() {
         var newOutput = new Output({
-          satoshis: -100,
+          atoms: -100,
           script: Script.empty()
         });
-      }).should.throw('Output satoshis is not a natural number');
+      }).should.throw('Output atoms is not a natural number');
     });
 
     it('1.1', function() {
       (function() {
         var newOutput = new Output({
-          satoshis: 1.1,
+          atoms: 1.1,
           script: Script.empty()
         });
-      }).should.throw('Output satoshis is not a natural number');
+      }).should.throw('Output atoms is not a natural number');
     });
 
     it('NaN', function() {
       (function() {
         var newOutput = new Output({
-          satoshis: NaN,
+          atoms: NaN,
           script: Script.empty()
         });
-      }).should.throw('Output satoshis is not a natural number');
+      }).should.throw('Output atoms is not a natural number');
     });
 
     it('Infinity', function() {
       (function() {
         var newOutput = new Output({
-          satoshis: Infinity,
+          atoms: Infinity,
           script: Script.empty()
         });
-      }).should.throw('Output satoshis is not a natural number');
+      }).should.throw('Output atoms is not a natural number');
     });
   });
 
   var expectEqualOutputs = function(a, b) {
-    a.satoshis.should.equal(b.satoshis);
+    a.atoms.should.equal(b.atoms);
     a.script.toString().should.equal(b.script.toString());
   };
 
@@ -110,7 +110,7 @@ describe('Output', function() {
   });
 
   var output2 = new Output({
-    satoshis: 1100000000,
+    atoms: 1100000000,
     script: new Script('OP_2 21 0x038282263212c609d9ea2a6e3e172de238d8c39' +
       'cabd5ac1ca10646e23fd5f51508 21 0x038282263212c609d9ea2a6e3e172de23' +
       '8d8c39cabd5ac1ca10646e23fd5f51508 OP_2 OP_CHECKMULTISIG OP_EQUAL')
@@ -125,7 +125,7 @@ describe('Output', function() {
 
   it('roundtrips to/from object', function() {
     var newOutput = new Output({
-      satoshis: 50,
+      atoms: 50,
       script: new Script().add(0)
     });
     var otherOutput = new Output(newOutput.toObject());
@@ -173,7 +173,7 @@ describe('Output', function() {
 
   it('sets script to null if it is an InvalidBuffer', function() {
     var output = new Output({
-      satoshis: 1000,
+      atoms: 1000,
       script: new Buffer('4c', 'hex')
     });
     should.equal(output.script, null);
@@ -181,7 +181,7 @@ describe('Output', function() {
 
   it('should throw an error if Script throws an error that is not InvalidBuffer', function() {
     var output = Output({
-      satoshis: 1000,
+      atoms: 1000,
       script: new Script()
     });
     (function() {

@@ -66,7 +66,7 @@ If a class has a `publicKey` member, for instance, that should be a `PublicKey` 
 
 #### G3 - Internal Amounts Must be Integers Representing Satoshis
 
-Avoid representation errors by always dealing with satoshis. For conversion for frontends, use the `Unit` class.
+Avoid representation errors by always dealing with atoms. For conversion for frontends, use the `Unit` class.
 
 #### G4 - Internal Network References Must be Network Instances
 

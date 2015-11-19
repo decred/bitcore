@@ -31,7 +31,7 @@ var utxo = {
   "outputIndex" : 0,
   "address" : "17XBj6iFEsf8kzDMGQk5ghZipxX49VXuaV",
   "script" : "76a91447862fe165e6121af80d5dde1ecb478ed170565b88ac",
-  "satoshis" : 50000
+  "atoms" : 50000
 };
 
 var transaction = new bitcore.Transaction()
@@ -68,7 +68,7 @@ var utxo = {
   "outputIndex" : 0,
   "address" : "17XBj6iFEsf8kzDMGQk5ghZipxX49VXuaV",
   "script" : "76a91447862fe165e6121af80d5dde1ecb478ed170565b88ac",
-  "satoshis" : 50000
+  "atoms" : 50000
 };
 
 var transaction = new bitcore.Transaction()
@@ -103,7 +103,7 @@ var utxo = {
   "outputIndex" : 0,
   "address" : address.toString(),
   "script" : new bitcore.Script(address).toHex(),
-  "satoshis" : 20000
+  "atoms" : 20000
 };
 
 var transaction = new bitcore.Transaction()

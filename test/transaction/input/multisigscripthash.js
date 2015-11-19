@@ -28,7 +28,7 @@ describe('MultiSigScriptHashInput', function() {
     txId: '66e64ef8a3b384164b78453fa8c8194de9a473ba14f89485a0e433699daec140',
     outputIndex: 0,
     script: new Script(address),
-    satoshis: 1000000
+    atoms: 1000000
   };
   it('can count missing signatures', function() {
     var transaction = new Transaction()

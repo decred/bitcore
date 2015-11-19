@@ -76,7 +76,7 @@ var p2shAddress = new bitcore.Address([publicKey1, publicKey2, publicKey3], 2);
 ```javascript
 var paymentInfo = {
   address: '1DNtTk4PUCGAdiNETAzQFWZiy2fCHtGnPx',
-  amount: 120000 //satoshis
+  amount: 120000 //atoms
 };
 var uri = new bitcore.URI(paymentInfo).toString();
 ```
@@ -86,7 +86,7 @@ var uri = new bitcore.URI(paymentInfo).toString();
 ```javascript
 var transaction = new Transaction()
     .from(utxos)          // Feed information about what unspent outputs one can use
-    .to(address, amount)  // Add an output with the given amount of satoshis
+    .to(address, amount)  // Add an output with the given amount of atoms
     .change(address)      // Sets up a change address where the rest of the funds will go
     .sign(privkeySet)     // Signs all the inputs it can
 ```
