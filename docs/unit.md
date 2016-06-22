@@ -1,7 +1,3 @@
----
-title: Bitcoin Units
-description: Utility to easily convert between bitcoin units.
----
 # Unit
 
 ## Description
@@ -9,6 +5,7 @@ description: Utility to easily convert between bitcoin units.
 Unit is a utility for handling and converting bitcoin units. We strongly recommend to always use atoms to represent amount inside your application and only convert them to other units in the front-end.
 
 To understand the need of using the `Unit` class when dealing with unit conversions, see this example:
+
 ```
 > 81.99 * 100000 // wrong
 8198999.999999999
@@ -31,7 +28,6 @@ var satsCode = Unit.atoms;
 ```
 
 ## Creating units
-
 There are two ways for creating a unit instance. You can instantiate the class using a value and a unit code; alternatively if the unit it's fixed you could you some of the static methods. Check some examples below:
 
 ```javascript
@@ -50,7 +46,6 @@ unit = Unit.fromSatoshis(amount);
 ```
 
 ## Conversion
-
 Once you have a unit instance, you can check its representation in all the available units. For your convenience the classes expose three ways to accomplish this. Using the `.to(unitCode)` method, using a fixed unit like `.toSatoshis()` or by using the accessors.
 
 ```javascript

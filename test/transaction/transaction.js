@@ -79,6 +79,69 @@ describe('Transaction', function() {
     a.should.deep.equal(b);
   });
 
+  it('toObject/fromObject with signatures and custom fee', function() {
+    var tx = new Transaction()
+      .from(simpleUtxoWith100000Satoshis)
+      .to([{address: toAddress, satoshis: 50000}])
+      .fee(15000)
+      .change(changeAddress)
+      .sign(privateKey);
+
+    var txData = JSON.stringify(tx);
+    var tx2 = new Transaction(JSON.parse(txData));
+    var txData2 = JSON.stringify(tx2);
+    txData.should.equal(txData2);
+  });
+
+  it('toObject/fromObject with p2sh signatures and custom fee', function() {
+    var tx = new Transaction()
+      .from(p2shUtxoWith1BTC, [p2shPublicKey1, p2shPublicKey2, p2shPublicKey3], 2)
+      .to([{address: toAddress, satoshis: 50000}])
+      .fee(15000)
+      .change(changeAddress)
+      .sign(p2shPrivateKey1)
+      .sign(p2shPrivateKey2);
+
+    var txData = JSON.stringify(tx);
+    var tx2 = new Transaction(JSON.parse(txData));
+    var tx2Data = JSON.stringify(tx2);
+    txData.should.equal(tx2Data);
+  });
+
+  it('fromObject with pay-to-public-key previous outputs', function() {
+    var tx = bitcore.Transaction({
+      hash: '132856bf03d6415562a556437d22ac63c37a4595fd986c796eb8e02dc031aa25',
+      version: 1,
+      inputs: [
+        {
+          prevTxId: 'e30ac3db24ef28500f023775d8eb06ad8a26241690080260308208a4020012a4',
+          outputIndex: 0,
+          sequenceNumber: 4294967294,
+          script: '473044022024dbcf41ccd4f3fe325bebb7a87d0bf359eefa03826482008e0fe7795586ad440220676f5f211ebbc311cfa631f14a8223a343cbadc6fa97d6d17f8d2531308b533201',
+          scriptString: '71 0x3044022024dbcf41ccd4f3fe325bebb7a87d0bf359eefa03826482008e0fe7795586ad440220676f5f211ebbc311cfa631f14a8223a343cbadc6fa97d6d17f8d2531308b533201',
+          output: {
+            satoshis: 5000000000,
+            script: '2103b1c65d65f1ff3fe145a4ede692460ae0606671d04e8449e99dd11c66ab55a7feac'
+          }
+        }
+      ],
+      outputs: [
+        {
+          satoshis: 3999999040,
+          script: '76a914fa1e0abfb8d26e494375f47e04b4883c44dd44d988ac'
+        },
+        {
+          satoshis: 1000000000,
+          script: '76a9140b2f0a0c31bfe0406b0ccc1381fdbe311946dadc88ac'
+        }
+      ],
+      nLockTime: 139
+    });
+    tx.inputs[0].should.be.instanceof(bitcore.Transaction.Input.PublicKey);
+    tx.inputs[0].output.satoshis.should.equal(5000000000);
+    tx.inputs[0].output.script.toHex().should.equal('2103b1c65d65f1ff3fe145a4ede692460ae0606671d04e8449e99dd11c66ab55a7feac');
+  });
+
   it('constructor returns a shallow copy of another transaction', function() {
     var transaction = new Transaction(tx_1_hex);
     var copy = new Transaction(transaction);
@@ -158,6 +221,26 @@ describe('Transaction', function() {
   var tenth = 1e7;
   var fourth = 25e6;
   var half = 5e7;
+
+  var p2shPrivateKey1 = PrivateKey.fromWIF('cNuW8LX2oeQXfKKCGxajGvqwhCgBtacwTQqiCGHzzKfmpHGY4TE9');
+  var p2shPublicKey1 = p2shPrivateKey1.toPublicKey();
+  var p2shPrivateKey2 = PrivateKey.fromWIF('cTtLHt4mv6zuJytSnM7Vd6NLxyNauYLMxD818sBC8PJ1UPiVTRSs');
+  var p2shPublicKey2 = p2shPrivateKey2.toPublicKey();
+  var p2shPrivateKey3 = PrivateKey.fromWIF('cQFMZ5gP9CJtUZPc9X3yFae89qaiQLspnftyxxLGvVNvM6tS6mYY');
+  var p2shPublicKey3 = p2shPrivateKey3.toPublicKey();
+
+  var p2shAddress = Address.createMultisig([
+    p2shPublicKey1,
+    p2shPublicKey2,
+    p2shPublicKey3
+  ], 2, 'testnet');
+  var p2shUtxoWith1BTC = {
+    address: p2shAddress.toString(),
+    txId: 'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458',
+    outputIndex: 0,
+    script: Script(p2shAddress).toString(),
+    satoshis: 1e8
+  };
 
   describe('adding inputs', function() {
 
