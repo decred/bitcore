@@ -46,7 +46,7 @@ describe('Unit', function() {
     unit = Unit.fromDCR('1.00001');
     unit.DCR.should.equal(1.00001);
 
-    unit = Unit.fromMilis('1.00001');
+    unit = Unit.fromMillis('1.00001');
     unit.mDCR.should.equal(1.00001);
 
     unit = Unit.fromDbits('100');
@@ -136,6 +136,7 @@ describe('Unit', function() {
     var unit = new Unit(1.3, 'DCR');
     unit.toDCR().should.equal(unit.DCR);
     unit.toMilis().should.equal(unit.mDCR);
+    unit.toMillis().should.equal(unit.mDCR);
     unit.toDbits().should.equal(unit.dbits);
     unit.toAtoms().should.equal(unit.atoms);
   });
