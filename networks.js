@@ -79,13 +79,17 @@ exports.dcrdlivenet = {
     bits: "207ffffff",
   },
   dnsSeeds: [
+    "mainnet-seed.decred.mindcry.org",
+    "mainnet-seed.decred.netpurgatory.com",
+    "mainnet.decredseed.org",
+    "mainnet-seed.decred.org"
   ],
   defaultClientPort: 9108
 };
 
 exports.dcrdtestnet = {
   name: 'dcrdtestnet',
-  magic: hex('0b000907'),
+  magic: hex('65a0e748'),
   addressVersion: 0x0f21,
   privKeyVersion: 0x230e,
   P2SHVersion: 0x0efc,
@@ -93,17 +97,20 @@ exports.dcrdtestnet = {
   hkeyPrivateVersion: 0x04358397,
   genesisBlock: {
 
-    hash: hex('5f3758be3cfe35880855d8cef0059ac5bd244ec5edaa329bdc9a73f6ed66745b'),
+    hash: hex('9cc27bbd461958ffc4ed7767492e905477a0a64ba62176d40ad8079d2a606142'),
     merkle_root: hex('a216ea043f0d481a072424af646787794c32bcefd3ed181a090319bbf8a37105'),
     height: 0,
     nonce: 414098458,
-    version: 1,
+    version: 4,
     prev_hash: buffertools.fill(new Buffer(32), 0),
-    timestamp: 1296688602,
-    bits: "207ffffff",
+    timestamp: 1489550400,
+    bits: "1e00ffff",
   },
   dnsSeeds: [
-    "testnet-seed.decred.mindcry.org"
+    "testnet-seed.decred.mindcry.org",
+    "testnet-seed.decred.netpurgatory.org",
+    "testnet.decredseed.org",
+    "testnet-seed.decred.org"
   ],
   defaultClientPort: 19108
 };
