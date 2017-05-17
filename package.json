@@ -80,6 +80,7 @@
     "request": "browser-request"
   },
   "dependencies": {
+    "blake-hash": "^1.0.0",
     "bn.js": "=2.0.4",
     "bs58": "=2.0.0",
     "buffer-compare": "=1.0.0",
@@ -91,7 +92,6 @@
     "bitcore-build": "bitpay/bitcore-build",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
-    "crypto-browserify": "git://github.com/decred/crypto-browserify.git#master-legacy",
     "gulp": "^3.8.10",
     "sinon": "^1.13.0"
   },
