@@ -26,11 +26,13 @@ var run = function() {
     };
 
     var peerman = new PeerManager({
-	network: 'dcrdtestnet'
+    network: 'hxtestnet'
+	// network: 'dcrdtestnet'
 	//network: 'testnet'
     });
 
-    peerman.addPeer(new Peer('127.0.0.1', 19108));
+    peerman.addPeer(new Peer('127.0.0.1', 12008));
+    // peerman.addPeer(new Peer('127.0.0.1', 19108));
     //peerman.addPeer(new Peer('127.0.0.1', 18333));
     peerman.on('connection', function(conn) {
 	conn.on('inv', handleInv);
