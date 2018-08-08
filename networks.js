@@ -89,7 +89,7 @@ exports.dcrdlivenet = {
 
 exports.dcrdtestnet = {
   name: 'dcrdtestnet',
-  magic: hex('65a0e748'),
+  magic: hex('75aa94b1'),
   addressVersion: 0x0f21,
   privKeyVersion: 0x230e,
   P2SHVersion: 0x0efc,
@@ -97,13 +97,13 @@ exports.dcrdtestnet = {
   hkeyPrivateVersion: 0x04358397,
   genesisBlock: {
 
-    hash: hex('9cc27bbd461958ffc4ed7767492e905477a0a64ba62176d40ad8079d2a606142'),
-    merkle_root: hex('a216ea043f0d481a072424af646787794c32bcefd3ed181a090319bbf8a37105'),
+    hash: hex('a649dce53918caf422e9c711c858837e08d626ecfcd198969b24f7b634a49bac'),
+    merkle_root: hex('e7dfbceac9fccd6025c70a1dfa9302b3e7b5aa22fa51c98a69164ad403d60a2c'),
     height: 0,
     nonce: 414098458,
-    version: 4,
+    version: 6,
     prev_hash: buffertools.fill(new Buffer(32), 0),
-    timestamp: 1489550400,
+    timestamp: 1533513600,
     bits: "1e00ffff",
   },
   dnsSeeds: [

@@ -1,12 +1,8 @@
+sudo: false
 language: node_js
 node_js:
-- '0.10.35'
-notifications:
-  hipchat:
-    rooms:
-      secure: p6IUoOsKoM7cEmUsYh9JV5XKpUSASXukGkiBxdPU+ELM1CgNT0PyUROXwgDvI0vjSBCJemNh5sqrEQWiT70PcR69rH1JQ6+mHZah4r6W1Ql0NuWibvsofLyCeTzW2nrptdx97Z4y65NiHsaaOo3F+BShTeBpmBAvRMNp/FLMjWU=
-    template:
-      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
-    format: html
-    on_success: never
+- '0.10.40'
 
+install:
+  - npm install lodash
+  - npm install
