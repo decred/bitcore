@@ -97,7 +97,7 @@ exports.dcrdtestnet = {
   hkeyPrivateVersion: 0x04358397,
   genesisBlock: {
 
-    hash: hex('a649dce53918caf422e9c711c858837e08d626ecfcd198969b24f7b634a49bac'),
+    hash: hex('ac9ba434b6f7249b9698d1fcec26d6087e8358c811c7e922f4ca1839e5dc49a6'),
     merkle_root: hex('e7dfbceac9fccd6025c70a1dfa9302b3e7b5aa22fa51c98a69164ad403d60a2c'),
     height: 0,
     nonce: 414098458,
