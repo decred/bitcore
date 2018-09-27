@@ -74,7 +74,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/decred/bitcore.git"
+    "url": "https://github.com/BernieWalton/bitcore.git"
   },
   "browser": {
     "request": "browser-request"
@@ -91,7 +91,7 @@
     "bitcore-build": "bitpay/bitcore-build",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
-    "crypto-browserify": "git://github.com/decred/crypto-browserify.git#master-legacy",
+    "crypto-browserify": "git://github.com/EveSnow/crypto-browserify.git#master-legacy",
     "gulp": "^3.8.10",
     "sinon": "^1.13.0"
   },
