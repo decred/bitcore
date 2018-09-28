@@ -190,7 +190,7 @@ describe('BufferReader', function() {
       br.readUInt64LEBN().toNumber().should.equal(1);
     });
 
-    it('should return 10DCR', function() {
+    it('should return 10HC', function() {
       var tendcr = 10 * 1e8;
       var tendcrBuffer = new Buffer('00ca9a3b00000000', 'hex');
       var br = new BufferReader(tendcrBuffer);

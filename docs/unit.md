@@ -17,12 +17,12 @@ To understand the need of using the `Unit` class when dealing with unit conversi
 
 ## Supported units
 
-The supported units are DCR, mDCR, bits (micro DCRs, uDCR) and atoms. The codes for each unit can be found as members of the Unit class.
+The supported units are HC, mHC, bits (micro HCs, uHC) and atoms. The codes for each unit can be found as members of the Unit class.
 
 ```javascript
-var dcrCode = Unit.DCR;
-var mdcrCode = Unit.mDCR;
-var udcrCode = Unit.uDCR;
+var hcCode = Unit.HC;
+var mhcCode = Unit.mHC;
+var uhcCode = Unit.uHC;
 var bitsCode = Unit.bits;
 var satsCode = Unit.atoms;
 ```
@@ -35,11 +35,11 @@ var unit;
 var amount = 100;
 
 // using a unit code
-var unitPreference = Unit.DCR;
+var unitPreference = Unit.HC;
 unit = new Unit(amount, unitPreference);
 
 // using a known unit
-unit = Unit.fromDCR(amount);
+unit = Unit.fromHC(amount);
 unit = Unit.fromMilis(amount);
 unit = Unit.fromBits(amount);
 unit = Unit.fromSatoshis(amount);
@@ -52,25 +52,25 @@ Once you have a unit instance, you can check its representation in all the avail
 var unit;
 
 // using a unit code
-var unitPreference = Unit.DCR;
+var unitPreference = Unit.HC;
 value = Unit.fromSatoshis(amount).to(unitPreference);
 
 // using a known unit
-value = Unit.fromDCR(amount).toDCR();
-value = Unit.fromDCR(amount).toMilis();
-value = Unit.fromDCR(amount).toBits();
-value = Unit.fromDCR(amount).toSatoshis();
+value = Unit.fromHC(amount).toHC();
+value = Unit.fromHC(amount).toMilis();
+value = Unit.fromHC(amount).toBits();
+value = Unit.fromHC(amount).toSatoshis();
 
 // using accessors
-value = Unit.fromDCR(amount).DCR;
-value = Unit.fromDCR(amount).mDCR;
-value = Unit.fromDCR(amount).bits;
-value = Unit.fromDCR(amount).atoms;
+value = Unit.fromHC(amount).HC;
+value = Unit.fromHC(amount).mHC;
+value = Unit.fromHC(amount).bits;
+value = Unit.fromHC(amount).atoms;
 ```
 
 ## Using a fiat currency
 
-The unit class also provides a convenient alternative to create an instance from a fiat amount and the corresponding DCR/fiat exchange rate. Any unit instance can be converted to a fiat amount by providing the current exchange rate. Check the example below:
+The unit class also provides a convenient alternative to create an instance from a fiat amount and the corresponding HC/fiat exchange rate. Any unit instance can be converted to a fiat amount by providing the current exchange rate. Check the example below:
 
 ```javascript
 var unit, fiat;
