@@ -96,7 +96,6 @@
     "sinon": "^1.13.0"
   },
   "engines": {
-    "node": "4.2.1",
     "npm": ">=2.0.0"
   },
   "license": "MIT"
