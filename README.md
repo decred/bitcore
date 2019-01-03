@@ -7,6 +7,12 @@ Decred fork
 [![Build Status](https://img.shields.io/travis/bitpay/bitcore.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore)
 [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore)
 
+```
+vi node_modules/bitcore-lib/lib/opcode.js
+
+OP_SHA2: 192
+```
+
 
 A pure and powerful JavaScript Bitcoin library.
 
